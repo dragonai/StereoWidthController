@@ -12,6 +12,7 @@
 #define PLUGINPROCESSOR_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "StereoWidthController.h"
 
 
 //==============================================================================
@@ -23,6 +24,11 @@ public:
     //==============================================================================
     StereoWidthControllerAudioProcessor();
     ~StereoWidthControllerAudioProcessor();
+
+	enum Parameters{MasterBypass=0,	StereoWidth, totalNumParam};
+	bool NeedsUIUpdate(){return UIUpdateFlag;};
+	void RequestUIUpdate(){UIUpdateFlag=true;};
+	void ClearUIUpdateFlag(){UIUpdateFlag=false;};
 
     //==============================================================================
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
@@ -68,6 +74,9 @@ public:
 private:
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (StereoWidthControllerAudioProcessor)
+	float UserParams[totalNumParam];
+	StereoWidthCtrl mWidthControl;
+	bool UIUpdateFlag; 
 };
 
 

@@ -36,7 +36,9 @@
                                                                     //[/Comments]
 */
 class StereoWidthControllerAudioProcessEditor  : public AudioProcessorEditor,
-                                                 public Timer
+                                                 public Timer,
+                                                 public SliderListener,
+                                                 public ButtonListener
 {
 public:
     //==============================================================================
@@ -54,6 +56,8 @@ public:
 
     void paint (Graphics& g);
     void resized();
+    void sliderValueChanged (Slider* sliderThatWasMoved);
+    void buttonClicked (Button* buttonThatWasClicked);
 
 
 
@@ -62,6 +66,9 @@ private:
     //[/UserVariables]
 
     //==============================================================================
+    ScopedPointer<Slider> WidthCtrlSld;
+    ScopedPointer<TextButton> BypassBtn;
+    ScopedPointer<Label> label;
 
 
     //==============================================================================
