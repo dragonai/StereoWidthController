@@ -125,6 +125,9 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <OutputFile>$(IntDir)\StereoWidthController.bsc</OutputFile>
     </Bscmake>
+    <PostBuildEvent>
+      <Command>copy /Y &quot;$(TargetPath)&quot; &quot;$(VSTPluginFolder)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\StereoWidthController\StereoWidthController.cpp"/>

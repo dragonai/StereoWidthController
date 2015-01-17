@@ -36,7 +36,7 @@
                        headerPath="..\..\Source\StereoWidthController;"/>
         <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
                        isDebug="0" optimisation="2" targetName="StereoWidthController"
-                       headerPath="..\..\Source\StereoWidthController;"/>
+                       headerPath="..\..\Source\StereoWidthController;" postbuildCommand="copy /Y &quot;$(TargetPath)&quot; &quot;$(VSTPluginFolder)"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../../../../../juce/modules"/>

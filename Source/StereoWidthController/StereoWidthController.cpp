@@ -1,9 +1,9 @@
-#include "StereoWidthCtrl.h"
+#include "StereoWidthController.h"
 
-StereoWidthCtrl::StereoWidthCtrl(){SetWidth(1.0f);}
-StereoWidthCtrl::~StereoWidthCtrl(){}
+StereoWidthController::StereoWidthController(){SetWidth(1.0f);}
+StereoWidthController::~StereoWidthController(){}
 
-void StereoWidthCtrl::SetWidth(float width)
+void StereoWidthController::SetWidth(float width)
 {
 m_width=width;
 float tmp;
@@ -16,7 +16,7 @@ diffGain=m_width*tmp;
 sumGain=tmp;
 }
 
-void StereoWidthCtrl::ClockProcess(float* LeftSample, float* RightSample)
+void StereoWidthController::ClockProcess(float* LeftSample, float* RightSample)
 {
 float m = sumGain*(*LeftSample+*RightSample);
 float s = diffGain*

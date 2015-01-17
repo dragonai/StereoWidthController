@@ -37,7 +37,7 @@ StereoWidthControllerAudioProcessEditor::StereoWidthControllerAudioProcessEditor
     setSize (600, 400);
 
 
-    //[Constructor] You can add your own custom stuff here.
+    //[Constructor] You can add your own custom stuff here..
 	startTimer(200); //starts timer with interval of 200ms
     //[/Constructor]
 }

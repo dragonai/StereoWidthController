@@ -1,45 +1,8 @@
-﻿Build started 1/17/2015 3:31:39 AM.
+﻿Build started 1/17/2015 5:56:01 AM.
      1>Project "C:\Users\Dragonai\Documents\GitHub\StereoWidthController\Builds\VisualStudio2010\StereoWidthController.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\JuceLibraryCode /I..\..\..\..\..\..\..\juce\modules /I"c:\SDKs\VST3 SDK" /ZI /nologo /W4 /WX- /MP /Od /Oy- /D WIN32 /D _WINDOWS /D DEBUG /D _DEBUG /D JUCER_VS2010_78A501D=1 /D JUCE_APP_VERSION=1.0.0 /D JUCE_APP_VERSION_HEX=0x10000 /D _WINDLL /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Debug\\" /Fd"Debug\\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\PluginProcessor.cpp ..\..\Source\PluginEditor.cpp ..\..\..\..\..\..\..\juce\modules\juce_audio_plugin_client\AAX\juce_AAX_Wrapper.cpp ..\..\..\..\..\..\..\juce\modules\juce_audio_basics\juce_audio_basics.cpp ..\..\..\..\..\..\..\juce\modules\juce_audio_devices\juce_audio_devices.cpp ..\..\..\..\..\..\..\juce\modules\juce_audio_formats\juce_audio_formats.cpp ..\..\..\..\..\..\..\juce\modules\juce_audio_processors\juce_audio_processors.cpp ..\..\..\..\..\..\..\juce\modules\juce_core\juce_core.cpp ..\..\..\..\..\..\..\juce\modules\juce_cryptography\juce_cryptography.cpp ..\..\..\..\..\..\..\juce\modules\juce_data_structures\juce_data_structures.cpp ..\..\..\..\..\..\..\juce\modules\juce_events\juce_events.cpp ..\..\..\..\..\..\..\juce\modules\juce_graphics\juce_graphics.cpp ..\..\..\..\..\..\..\juce\modules\juce_gui_basics\juce_gui_basics.cpp ..\..\..\..\..\..\..\juce\modules\juce_gui_extra\juce_gui_extra.cpp ..\..\..\..\..\..\..\juce\modules\juce_opengl\juce_opengl.cpp ..\..\..\..\..\..\..\juce\modules\juce_audio_plugin_client\utility\juce_PluginUtilities.cpp ..\..\..\..\..\..\..\juce\modules\juce_video\juce_video.cpp ..\..\..\..\..\..\..\juce\modules\juce_audio_plugin_client\VST\juce_VST_Wrapper.cpp ..\..\..\..\..\..\..\juce\modules\juce_audio_plugin_client\VST3\juce_VST3_Wrapper.cpp
-         PluginProcessor.cpp
-         PluginEditor.cpp
-         juce_AAX_Wrapper.cpp
-         juce_audio_basics.cpp
-         juce_audio_devices.cpp
-         juce_audio_formats.cpp
-         juce_audio_processors.cpp
-         juce_core.cpp
-         juce_cryptography.cpp
-         juce_data_structures.cpp
-         juce_events.cpp
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\plugineditor.cpp(82): warning C4189: 'ourProcessor' : local variable is initialized but not referenced
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(35): warning C4100: 'index' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(40): warning C4100: 'newValue' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(40): warning C4100: 'index' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(44): warning C4100: 'index' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(49): warning C4100: 'index' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(64): warning C4100: 'index' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(69): warning C4100: 'index' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(113): warning C4100: 'index' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(117): warning C4100: 'index' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(122): warning C4100: 'newName' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(122): warning C4100: 'index' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(127): warning C4100: 'samplesPerBlock' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(127): warning C4100: 'sampleRate' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(139): warning C4100: 'midiMessages' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(154): warning C4189: 'channelData' : local variable is initialized but not referenced
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(168): error C2061: syntax error : identifier 'StereoWidthControllerAudioProcessorEditor'
-         juce_graphics.cpp
-         juce_gui_basics.cpp
-         juce_gui_extra.cpp
-         juce_opengl.cpp
-         juce_PluginUtilities.cpp
-         juce_video.cpp
-         juce_VST_Wrapper.cpp
-         juce_VST3_Wrapper.cpp
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.Cpp.Platform.targets(64,5): error MSB8020: The build tools for Visual Studio 2010 (Platform Toolset = 'v100') cannot be found. To build using the v100 build tools, please install Visual Studio 2010 build tools.  Alternatively, you may upgrade to the current Visual Studio tools by selecting the Project menu or right-click the solution, and then selecting "Upgrade Solution...".
      1>Done Building Project "C:\Users\Dragonai\Documents\GitHub\StereoWidthController\Builds\VisualStudio2010\StereoWidthController.vcxproj" (Build target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:14.27
+Time Elapsed 00:00:00.03

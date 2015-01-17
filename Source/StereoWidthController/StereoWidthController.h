@@ -6,11 +6,11 @@ width = 1: no change
 width > 1: increase in stereo width
 width = 0: mono */
 
-class StereoWidthCtrl
+class StereoWidthController
 {
 public:
-StereoWidthCtrl();
-~StereoWidthCtrl();
+StereoWidthController();
+~StereoWidthController();
 
 //Parameters
 void SetWidth(float width);
