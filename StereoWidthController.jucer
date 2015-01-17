@@ -13,6 +13,12 @@
               jucerVersion="3.1.0" companyName="Redwood Audio" userNotes="Stereo Width Control based on MusicDsp Archive code">
   <MAINGROUP id="OK78bZ" name="StereoWidthController">
     <GROUP id="{49279E0F-2B4C-DA96-28B7-4594DCE6FD5C}" name="Source">
+      <GROUP id="{6D1814EE-2459-85DE-E08A-7DFAF1FA96A6}" name="StereoWidthController">
+        <FILE id="tx5aqR" name="StereoWidthController.cpp" compile="1" resource="0"
+              file="Source/StereoWidthController/StereoWidthController.cpp"/>
+        <FILE id="dwNFz2" name="StereoWidthController.h" compile="0" resource="0"
+              file="Source/StereoWidthController/StereoWidthController.h"/>
+      </GROUP>
       <FILE id="uFZAtH" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
       <FILE id="Vobf4V" name="PluginProcessor.h" compile="0" resource="0"
@@ -26,9 +32,11 @@
     <VS2010 targetFolder="Builds/VisualStudio2010" vstFolder="c:\SDKs\VST3 SDK">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="1" optimisation="1" targetName="StereoWidthController"/>
+                       isDebug="1" optimisation="1" targetName="StereoWidthController"
+                       headerPath="..\..\Source\StereoWidthController;"/>
         <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="0" optimisation="2" targetName="StereoWidthController"/>
+                       isDebug="0" optimisation="2" targetName="StereoWidthController"
+                       headerPath="..\..\Source\StereoWidthController;"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../../../../../juce/modules"/>
