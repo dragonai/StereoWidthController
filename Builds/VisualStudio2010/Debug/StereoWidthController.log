@@ -1,50 +1,33 @@
-﻿Build started 1/17/2015 7:05:46 AM.
-     1>Project "C:\Users\Dragonai\Documents\GitHub\StereoWidthController\Builds\VisualStudio2010\StereoWidthController.vcxproj" on node 2 (rebuild target(s)).
-     1>_PrepareForClean:
-         Deleting file "Debug\StereoWidthController.lastbuildstate".
-       InitializeBuildStatus:
+﻿Build started 1/17/2015 11:03:06 AM.
+     1>Project "C:\Users\Dragonai\Documents\GitHub\StereoWidthController\Builds\VisualStudio2010\StereoWidthController.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
          Touching "Debug\StereoWidthController.unsuccessfulbuild".
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\..\JuceLibraryCode /I..\..\..\..\..\..\..\juce\modules /I"c:\SDKs\VST3 SDK" /I..\..\Source\StereoWidthController /ZI /nologo /W4 /WX- /MP /Od /Oy- /D WIN32 /D _WINDOWS /D DEBUG /D _DEBUG /D JUCER_VS2010_78A501D=1 /D JUCE_APP_VERSION=1.0.0 /D JUCE_APP_VERSION_HEX=0x10000 /D _WINDLL /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Debug\\" /Fd"Debug\\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\StereoWidthController\StereoWidthController.cpp ..\..\Source\PluginProcessor.cpp ..\..\Source\PluginEditor.cpp ..\..\..\..\..\..\..\juce\modules\juce_audio_plugin_client\AAX\juce_AAX_Wrapper.cpp ..\..\..\..\..\..\..\juce\modules\juce_audio_basics\juce_audio_basics.cpp ..\..\..\..\..\..\..\juce\modules\juce_audio_devices\juce_audio_devices.cpp ..\..\..\..\..\..\..\juce\modules\juce_audio_formats\juce_audio_formats.cpp ..\..\..\..\..\..\..\juce\modules\juce_audio_processors\juce_audio_processors.cpp ..\..\..\..\..\..\..\juce\modules\juce_core\juce_core.cpp ..\..\..\..\..\..\..\juce\modules\juce_cryptography\juce_cryptography.cpp ..\..\..\..\..\..\..\juce\modules\juce_data_structures\juce_data_structures.cpp ..\..\..\..\..\..\..\juce\modules\juce_events\juce_events.cpp ..\..\..\..\..\..\..\juce\modules\juce_graphics\juce_graphics.cpp ..\..\..\..\..\..\..\juce\modules\juce_gui_basics\juce_gui_basics.cpp ..\..\..\..\..\..\..\juce\modules\juce_gui_extra\juce_gui_extra.cpp ..\..\..\..\..\..\..\juce\modules\juce_opengl\juce_opengl.cpp ..\..\..\..\..\..\..\juce\modules\juce_audio_plugin_client\utility\juce_PluginUtilities.cpp ..\..\..\..\..\..\..\juce\modules\juce_video\juce_video.cpp ..\..\..\..\..\..\..\juce\modules\juce_audio_plugin_client\VST\juce_VST_Wrapper.cpp ..\..\..\..\..\..\..\juce\modules\juce_audio_plugin_client\VST3\juce_VST3_Wrapper.cpp
-         StereoWidthController.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\..\JuceLibraryCode /I..\..\..\..\..\..\..\juce\modules /I"c:\SDKs\VST3 SDK" /I..\..\Source\StereoWidthController /ZI /nologo /W4 /WX- /MP /Od /Oy- /D WIN32 /D _WINDOWS /D DEBUG /D _DEBUG /D JUCER_VS2010_78A501D=1 /D JUCE_APP_VERSION=1.0.0 /D JUCE_APP_VERSION_HEX=0x10000 /D _WINDLL /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Debug\\" /Fd"Debug\\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\PluginProcessor.cpp ..\..\Source\PluginEditor.cpp
          PluginProcessor.cpp
          PluginEditor.cpp
-         juce_AAX_Wrapper.cpp
-         juce_audio_basics.cpp
-         juce_audio_devices.cpp
-         juce_audio_formats.cpp
-         juce_audio_processors.cpp
-         juce_core.cpp
-         juce_cryptography.cpp
-         juce_data_structures.cpp
-         juce_events.cpp
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\plugineditor.cpp(82): warning C4189: 'ourProcessor' : local variable is initialized but not referenced
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(35): warning C4100: 'index' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(40): warning C4100: 'newValue' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(40): warning C4100: 'index' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(44): warning C4100: 'index' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(49): warning C4100: 'index' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(64): warning C4100: 'index' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(69): warning C4100: 'index' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(113): warning C4100: 'index' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(117): warning C4100: 'index' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(122): warning C4100: 'newName' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(122): warning C4100: 'index' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(127): warning C4100: 'samplesPerBlock' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(127): warning C4100: 'sampleRate' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(139): warning C4100: 'midiMessages' : unreferenced formal parameter
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(154): warning C4189: 'channelData' : local variable is initialized but not referenced
-     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(168): error C2061: syntax error : identifier 'StereoWidthControllerAudioProcessorEditor'
-         juce_graphics.cpp
-         juce_gui_basics.cpp
-         juce_gui_extra.cpp
-         juce_opengl.cpp
-         juce_PluginUtilities.cpp
-         juce_video.cpp
-         juce_VST_Wrapper.cpp
-         juce_VST3_Wrapper.cpp
-     1>Done Building Project "C:\Users\Dragonai\Documents\GitHub\StereoWidthController\Builds\VisualStudio2010\StereoWidthController.vcxproj" (rebuild target(s)) -- FAILED.
+     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.h(78): error C2146: syntax error : missing ';' before identifier 'mWidthControl'
+     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.h(78): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.h(78): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.h(78): error C2146: syntax error : missing ';' before identifier 'mWidthControl'
+     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.h(78): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.h(78): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(20): error C2065: 'mWidthControl' : undeclared identifier
+     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(20): error C2228: left of '.SetWidth' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(46): error C2065: 'mWidthControl' : undeclared identifier
+     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(46): error C2228: left of '.Getwidth' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(61): error C2065: 'mWidthControl' : undeclared identifier
+     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(61): error C2228: left of '.SetWidth' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(182): error C2065: 'mWidthControl' : undeclared identifier
+     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(182): error C2228: left of '.ClockProcess' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\pluginprocessor.cpp(194): error C2061: syntax error : identifier 'StereoWidthControllerAudioProcessorEditor'
+     1>c:\users\dragonai\documents\github\stereowidthcontroller\source\plugineditor.cpp(132): error C2143: syntax error : missing ';' before '}'
+     1>Done Building Project "C:\Users\Dragonai\Documents\GitHub\StereoWidthController\Builds\VisualStudio2010\StereoWidthController.vcxproj" (build target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:13.60
+Time Elapsed 00:00:04.16

@@ -17,8 +17,8 @@
   ==============================================================================
 */
 
-#ifndef __JUCE_HEADER_B202FD97A0BC46C__
-#define __JUCE_HEADER_B202FD97A0BC46C__
+#ifndef __JUCE_HEADER_13C43D57A5BE69C1__
+#define __JUCE_HEADER_13C43D57A5BE69C1__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "JuceHeader.h"
@@ -35,15 +35,15 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class StereoWidthControllerAudioProcessEditor  : public AudioProcessorEditor,
-                                                 public Timer,
-                                                 public SliderListener,
-                                                 public ButtonListener
+class StereoWidthControllerAudioProcessorEditor  : public AudioProcessorEditor,
+                                                   public Timer,
+                                                   public SliderListener,
+                                                   public ButtonListener
 {
 public:
     //==============================================================================
-    StereoWidthControllerAudioProcessEditor (StereoWidthControllerAudioProcessor* ownerFilter);
-    ~StereoWidthControllerAudioProcessEditor();
+    StereoWidthControllerAudioProcessorEditor (StereoWidthControllerAudioProcessor* ownerFilter);
+    ~StereoWidthControllerAudioProcessorEditor();
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
@@ -72,10 +72,10 @@ private:
 
 
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (StereoWidthControllerAudioProcessEditor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (StereoWidthControllerAudioProcessorEditor)
 };
 
 //[EndFile] You can add extra defines here...
 //[/EndFile]
 
-#endif   // __JUCE_HEADER_B202FD97A0BC46C__
+#endif   // __JUCE_HEADER_13C43D57A5BE69C1__

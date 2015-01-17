@@ -27,7 +27,7 @@
 //[/MiscUserDefs]
 
 //==============================================================================
-StereoWidthControllerAudioProcessEditor::StereoWidthControllerAudioProcessEditor (StereoWidthControllerAudioProcessor* ownerFilter)
+StereoWidthControllerAudioProcessorEditor::StereoWidthControllerAudioProcessorEditor (StereoWidthControllerAudioProcessor* ownerFilter)
     : AudioProcessorEditor(ownerFilter)
 {
     addAndMakeVisible (WidthCtrlSld = new Slider ("Width Factor Slider"));
@@ -57,11 +57,13 @@ StereoWidthControllerAudioProcessEditor::StereoWidthControllerAudioProcessEditor
 
 
     //[Constructor] You can add your own custom stuff here..
+	getProcessor()->RequestUIUpdate(); // UI update must be done each time a new editor is constructed
 	startTimer(200); //starts timer with interval of 200ms
+	BypassBtn->setClickingTogglesState(true);
     //[/Constructor]
 }
 
-StereoWidthControllerAudioProcessEditor::~StereoWidthControllerAudioProcessEditor()
+StereoWidthControllerAudioProcessorEditor::~StereoWidthControllerAudioProcessorEditor()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
     //[/Destructor_pre]
@@ -76,7 +78,7 @@ StereoWidthControllerAudioProcessEditor::~StereoWidthControllerAudioProcessEdito
 }
 
 //==============================================================================
-void StereoWidthControllerAudioProcessEditor::paint (Graphics& g)
+void StereoWidthControllerAudioProcessorEditor::paint (Graphics& g)
 {
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
@@ -87,7 +89,7 @@ void StereoWidthControllerAudioProcessEditor::paint (Graphics& g)
     //[/UserPaint]
 }
 
-void StereoWidthControllerAudioProcessEditor::resized()
+void StereoWidthControllerAudioProcessorEditor::resized()
 {
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
@@ -99,14 +101,16 @@ void StereoWidthControllerAudioProcessEditor::resized()
     //[/UserResized]
 }
 
-void StereoWidthControllerAudioProcessEditor::sliderValueChanged (Slider* sliderThatWasMoved)
+void StereoWidthControllerAudioProcessorEditor::sliderValueChanged (Slider* sliderThatWasMoved)
 {
     //[UsersliderValueChanged_Pre]
+	StereoWidthControllerAudioProcessor* ourProcessor = getProcessor();
     //[/UsersliderValueChanged_Pre]
 
     if (sliderThatWasMoved == WidthCtrlSld)
     {
         //[UserSliderCode_WidthCtrlSld] -- add your slider handling code here..
+		ourProcessor->setParameter(StereoWidthControllerAudioProcessor::StereoWidth, (float)WidthCtrlSld->getValue());
         //[/UserSliderCode_WidthCtrlSld]
     }
 
@@ -114,14 +118,16 @@ void StereoWidthControllerAudioProcessEditor::sliderValueChanged (Slider* slider
     //[/UsersliderValueChanged_Post]
 }
 
-void StereoWidthControllerAudioProcessEditor::buttonClicked (Button* buttonThatWasClicked)
+void StereoWidthControllerAudioProcessorEditor::buttonClicked (Button* buttonThatWasClicked)
 {
     //[UserbuttonClicked_Pre]
+	StereoWidthControllerAudioProcessor* ourProcessor = getProcessor();
     //[/UserbuttonClicked_Pre]
 
     if (buttonThatWasClicked == BypassBtn)
     {
         //[UserButtonCode_BypassBtn] -- add your button handler code here..
+		ourProcessor->setParameter(StereoWidthControllerAudioProcessor::MasterBypass, (float)BypassBtn->getToggleState());
         //[/UserButtonCode_BypassBtn]
     }
 
@@ -132,10 +138,16 @@ void StereoWidthControllerAudioProcessEditor::buttonClicked (Button* buttonThatW
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
-void StereoWidthControllerAudioProcessEditor::timerCallback()
+void StereoWidthControllerAudioProcessorEditor::timerCallback()
 {
 	StereoWidthControllerAudioProcessor* ourProcessor = getProcessor();
 	//exchange any data you want between UI elements and the Plugin "ourProcessor"
+	if(ourProcessor->NeedsUIUpdate())
+	{
+		BypassBtn->setToggleState(1.0f == ourProcessor->getParameter(StereoWidthControllerAudioProcessor::MasterBypass), dontSendNotification);
+		WidthCtrlSld->setValue(ourProcessor->getParameter(StereoWidthControllerAudioProcessor::StereoWidth), dontSendNotification);
+		ourProcessor->ClearUIUpdateFlag();
+	}
 }
 //[/MiscUserCode]
 
@@ -149,7 +161,7 @@ void StereoWidthControllerAudioProcessEditor::timerCallback()
 
 BEGIN_JUCER_METADATA
 
-<JUCER_COMPONENT documentType="Component" className="StereoWidthControllerAudioProcessEditor"
+<JUCER_COMPONENT documentType="Component" className="StereoWidthControllerAudioProcessorEditor"
                  componentName="" parentClasses="public AudioProcessorEditor, public Timer"
                  constructorParams="StereoWidthControllerAudioProcessor* ownerFilter"
                  variableInitialisers="AudioProcessorEditor(ownerFilter)" snapPixels="8"

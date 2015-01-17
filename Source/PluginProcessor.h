@@ -75,7 +75,7 @@ private:
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (StereoWidthControllerAudioProcessor)
 	float UserParams[totalNumParam];
-	StereoWidthCtrl mWidthControl;
+	StereoWidthController mWidthControl;
 	bool UIUpdateFlag; 
 };
 

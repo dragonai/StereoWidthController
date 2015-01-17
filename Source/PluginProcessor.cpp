@@ -15,6 +15,10 @@
 //==============================================================================
 StereoWidthControllerAudioProcessor::StereoWidthControllerAudioProcessor()
 {
+	UserParams[MasterBypass]=0.0f; //default to not bypassed
+	UserParams[StereoWidth]=1.0f; //default Width 1.0 (no change)
+	mWidthControl.SetWidth(UserParams[StereoWidth]); //push VST default to effect
+	UIUpdateFlag=true; //Request UI update
 }
 
 StereoWidthControllerAudioProcessor::~StereoWidthControllerAudioProcessor()
@@ -29,26 +33,56 @@ const String StereoWidthControllerAudioProcessor::getName() const
 
 int StereoWidthControllerAudioProcessor::getNumParameters()
 {
-    return 0;
+    return totalNumParam;
 }
 
 float StereoWidthControllerAudioProcessor::getParameter (int index)
 {
-    return 0.0f;
+    switch(index)
+	{
+		case MasterBypass: //example nothing special
+			return UserParams[MasterBypass];
+		case StereoWidth: //example update from internal
+			UserParams[StereoWidth]=mWidthControl.Getwidth();
+			return UserParams[StereoWidth];
+		default: return 0.0f; //invalid index
+	}
 }
 
 void StereoWidthControllerAudioProcessor::setParameter (int index, float newValue)
 {
+	switch(index)
+	{
+		case MasterBypass:
+			UserParams[MasterBypass]=newValue;
+			break;
+		case StereoWidth:
+			UserParams[StereoWidth]=newValue;
+			mWidthControl.SetWidth(UserParams[StereoWidth]);
+			break;
+		default: return;
+	}
+	UIUpdateFlag=true; //Request UI update -- Some OSX hosts use alternate editors, this updates ours
 }
 
 const String StereoWidthControllerAudioProcessor::getParameterName (int index)
 {
-    return String();
+    switch(index)
+	{
+		case MasterBypass:
+			return "Master Bypass";
+		case StereoWidth:
+			return "StereoWidth Factor";
+		default:
+			return String::empty;
+	}
 }
 
 const String StereoWidthControllerAudioProcessor::getParameterText (int index)
 {
-    return String();
+    if(index>=0 && index<totalNumParam)
+		return String(UserParams[index]); //return parameter value as string
+	else return String::empty;
 }
 
 const String StereoWidthControllerAudioProcessor::getInputChannelName (int channelIndex) const
@@ -138,23 +172,15 @@ void StereoWidthControllerAudioProcessor::releaseResources()
 
 void StereoWidthControllerAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
 {
-    // In case we have more outputs than inputs, this code clears any output
-    // channels that didn't contain input data, (because these aren't
-    // guaranteed to be empty - they may contain garbage).
-    // I've added this to avoid people getting screaming feedback
-    // when they first compile the plugin, but obviously you don't need to
-    // this code if your algorithm already fills all the output channels.
-    for (int i = getNumInputChannels(); i < getNumOutputChannels(); ++i)
-        buffer.clear (i, 0, buffer.getNumSamples());
-
-    // This is the place where you'd normally do the guts of your plugin's
-    // audio processing...
-    for (int channel = 0; channel < getNumInputChannels(); ++channel)
-    {
-        float* channelData = buffer.getWritePointer (channel);
-
-        // ..do something to the data...
-    }
+	if(getNumInputChannels()<2 || UserParams[MasterBypass])
+	{}/*Nothing to do here - processing is in-place, so doing nothing is pass-through (for NumInputs=NumOutputs)*/ 
+	else
+	{//Not bypassed - do processing!
+		float* leftData = buffer.getWritePointer(0);
+		float* rightData = buffer.getWritePointer(1);
+		for(long i=0; i<buffer.getNumSamples();i++)
+		mWidthControl.ClockProcess(&leftData[i], &rightData[i]);
+	}
 }
 
 //==============================================================================
@@ -165,21 +191,41 @@ bool StereoWidthControllerAudioProcessor::hasEditor() const
 
 AudioProcessorEditor* StereoWidthControllerAudioProcessor::createEditor()
 {
-    return new StereoWidthControllerAudioProcessorEditor (*this);
+    return new StereoWidthControllerAudioProcessorEditor (this);
 }
 
 //==============================================================================
 void StereoWidthControllerAudioProcessor::getStateInformation (MemoryBlock& destData)
-{
-    // You should use this method to store your parameters in the memory block.
-    // You could do that either as raw data, or use the XML or ValueTree classes
-    // as intermediaries to make it easy to save and load complex data.
+{//Save UserParams/Data to file
+	XmlElement root("Root");
+	XmlElement *el;
+	el = root.createNewChildElement("Bypass");
+	el->addTextElement(String(UserParams[MasterBypass]));
+	el = root.createNewChildElement("StereoWidth");
+	el->addTextElement(String(UserParams[StereoWidth]));
+	copyXmlToBinary(root,destData);
 }
 
 void StereoWidthControllerAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
-{
-    // You should use this method to restore your parameters from this memory block,
-    // whose contents will have been created by the getStateInformation() call.
+{ //Load UserParams/Data from file
+	XmlElement* pRoot = getXmlFromBinary(data,sizeInBytes);
+	if(pRoot!=NULL)
+	{
+		forEachXmlChildElement((*pRoot),pChild)
+		{
+			if(pChild->hasTagName("Bypass"))
+			{
+				String text = pChild->getAllSubText();
+				setParameter(MasterBypass,text.getFloatValue());
+			}
+			else if(pChild->hasTagName("StereoWidth"))
+			{
+				String text = pChild->getAllSubText();
+				setParameter(StereoWidth,text.getFloatValue());}
+			}
+		delete pRoot;
+		UIUpdateFlag=true;//Request UI update
+	}
 }
 
 //==============================================================================
